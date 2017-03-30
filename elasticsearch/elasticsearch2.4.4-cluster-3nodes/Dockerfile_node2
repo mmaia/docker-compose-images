@@ -1,0 +1,13 @@
+FROM elasticsearch:2
+ADD node2/elasticsearch.yml /usr/share/elasticsearch/config/
+
+ENV ES_HEAP_SIZE=1536m
+
+USER root
+
+RUN chown elasticsearch:elasticsearch config/elasticsearch.yml \
+&& mkdir -p /opt/elasticsearch/data/escluster \
+&& mkdir -p /opt/elasticsearch/logs/escluster \
+&& chown -R elasticsearch:elasticsearch /opt/elasticsearch
+
+USER elasticsearch
