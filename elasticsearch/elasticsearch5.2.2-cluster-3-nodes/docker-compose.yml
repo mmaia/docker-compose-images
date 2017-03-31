@@ -17,9 +17,8 @@ services:
     cap_add:
       - IPC_LOCK
     volumes:
-       - esdata0:/usr/share/elasticsearch/data
-#      - /opt/elasticsearch/node0/data:/opt/elasticsearch/data
-#      - /opt/elasticsearch/node0/logs:/opt/elasticsearch/logs
+      - /opt/elasticsearch/node0/data:/opt/elasticsearch/data
+      - /opt/elasticsearch/node0/logs:/opt/elasticsearch/logs
     ports:
       - 9200:9200
       - 9300:9300
@@ -43,9 +42,8 @@ services:
     cap_add:
       - IPC_LOCK
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
-#      - /opt/elasticsearch/node1/logs:/opt/elasticsearch/logs
-#      - /opt/elasticsearch/node1/data:/opt/elasticsearch/data
+      - /opt/elasticsearch/node1/logs:/opt/elasticsearch/logs
+      - /opt/elasticsearch/node1/data:/opt/elasticsearch/data
     ports:
           - 9201:9200
           - 9301:9300
@@ -69,21 +67,13 @@ services:
     cap_add:
       - IPC_LOCK
     volumes:
-      - esdata2:/usr/share/elasticsearch/data
-#      - /opt/elasticsearch/node2/logs:/opt/elasticsearch/logs
-#      - /opt/elasticsearch/node2/data:/opt/elasticsearch/data
+      - /opt/elasticsearch/node2/logs:/opt/elasticsearch/logs
+      - /opt/elasticsearch/node2/data:/opt/elasticsearch/data
     ports:
           - 9202:9200
           - 9302:9300
     networks:
       - esnet
-volumes:
-  esdata0:
-    driver: local
-  esdata1:
-    driver: local
-  esdata2:
-    driver: local
 
 networks:
   esnet:
