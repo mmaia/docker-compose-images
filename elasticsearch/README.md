@@ -3,6 +3,8 @@
 Most images bind on localhost on ports withing range 9200 to 9300, make sure
 to have free ports on this range or reconfigure and rebuild the image: `docker-compose build`
 
+Once the images are built you can run: `docker-compose up`
+
 ## Install Elastic Search Head
 
 While the curl commands can be handy for a quick test of the cluster status I suggest 
