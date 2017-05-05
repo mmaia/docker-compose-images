@@ -1,10 +1,22 @@
 version: '2.1'
+
 services:
   kafka:
     image: spotify/kafka
+    container_name: kafka
     ports:
       - "2181:2181"
       - "9092:9092"
     environment:
       ADVERTISED_HOST: 127.0.0.1  # single node so can bind to localhost..
       ADVERTISED_PORT: 9092
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    container_name: kafka-manager
+    environment:
+      ZK_HOSTS: kafka:2181
+    ports:
+      - "9000:9000"
+    depends_on:
+      - kafka
