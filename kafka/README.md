@@ -13,4 +13,4 @@ also start a kafka-manager dockerized instance that should be accessible on the 
 We recommend to use [kafka-manager](https://github.com/yahoo/kafka-manager)
 
 Once you build and run the manager access it on browser at: http://localhost:9000
-point kafka-manager to local zookeper port: localhost:2181
+point kafka-manager to: kafka:2181 and enable JMX (security is disabled by default).
