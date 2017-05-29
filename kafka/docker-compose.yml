@@ -12,7 +12,7 @@ services:
       JMX_PORT: 9999
 
   kafka-manager:
-    image: mmaia/kafka-manager-docker:latest
+    image: mmaia/kafka-manager-docker:1.3.3.6
     container_name: kafka-manager
     environment:
       ZK_HOSTS: kafka:2181
@@ -20,3 +20,11 @@ services:
       - "9000:9000"
     depends_on:
       - kafka
+
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    ports:
+      - "9010:9000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
